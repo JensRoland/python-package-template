@@ -9,7 +9,11 @@
 [![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/JensRoland/python-package-template/blob/master/.pre-commit-config.yaml)
 [![Semantic Versions](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--versions-e10079.svg)](https://github.com/JensRoland/python-package-template/releases)
 [![License](https://img.shields.io/github/license/JensRoland/python-package-template)](https://github.com/JensRoland/python-package-template/blob/master/LICENSE)
-![Coverage Report](assets/images/coverage.svg)
+
+[![lint report](assets/images/pylint.svg)](.logs/pylint-log.txt)
+[![coverage report](assets/images/coverage.svg)](.logs/coverage.txt)
+[![static analysis](assets/images/mypy.svg)](.logs/mypy.txt)
+[![vulnerabilities](assets/images/vulnerabilities.svg)](.logs/safety.txt)
 
 Your next Python package needs a bleeding-edge project structure.
 </div>
@@ -108,9 +112,9 @@ The input variables, with their default values:
 | :-----------------------: | :-------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |      `project_name`       |      `python-project`       | [Check the availability of possible name](http://ivantomic.com/projects/ospnc/) before creating the project.                                                                                        |
 |   `project_description`   | based on the `project_name` | Brief description of your project.                                                                                                                                                                  |
-|      `organization`       | based on the `project_name` | Name of the organization. Used to generate LICENSE and to specify ownership in `pyproject.toml`.                                                                                                 |
+|      `organization`       | based on the `project_name` | Name of the organization. Used to generate LICENSE and to specify ownership in `pyproject.toml`.                                                                                                    |
 |         `license`         |            `MIT`            | One of `MIT`, `BSD-3`, `GNU GPL v3.0`, `Apache Software License 2.0`, and `Proprietary`.                                                                                                            |
-| `minimum_python_version`  |            `3.7`            | Minimum Python version. One of `3.7`, `3.8`, `3.9` and `3.10`. It is used for builds, GitHub workflow and formatters (`black`, `isort` and `pyupgrade`).                                                    |
+| `minimum_python_version`  |            `3.7`            | Minimum Python version. One of `3.7`, `3.8`, `3.9` and `3.10`. It is used for builds, GitHub workflow and formatters (`black`, `isort` and `pyupgrade`).                                            |
 |     `github_username`     | based on the `organization` | GitHub username for hosting. Also used to set up `README.md`, `pyproject.toml` and template files for GitHub.                                                                                       |
 |          `email`          | based on the `organization` | Email for `CODE_OF_CONDUCT.md`, `SECURITY.md` files and to specify the ownership of the project in `pyproject.toml`.                                                                                |
 |         `version`         |           `0.1.0`           | Initial version of the package. Make sure it follows the [Semantic Versions](https://semver.org/) specification.                                                                                    |
@@ -296,7 +300,19 @@ make test
 </details>
 
 <details>
-<summary>7. All linters</summary>
+<summary>7. Making badges</summary>
+<p>
+
+
+```bash
+make extrabadges
+```
+
+</p>
+</details>
+
+<details>
+<summary>8. All linters</summary>
 <p>
 
 Of course there is a command to ~~rule~~ run all linters in one:
@@ -315,7 +331,7 @@ make test && make check-codestyle && make mypy && make check-safety
 </details>
 
 <details>
-<summary>8. Docker</summary>
+<summary>9. Docker</summary>
 <p>
 
 ```bash
@@ -340,7 +356,7 @@ More information [about docker](https://github.com/JensRoland/python-package-tem
 </details>
 
 <details>
-<summary>9. Cleanup</summary>
+<summary>10. Cleanup</summary>
 <p>
 Delete pycache files
 
