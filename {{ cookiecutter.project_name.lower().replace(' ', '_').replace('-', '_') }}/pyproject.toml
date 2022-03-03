@@ -69,6 +69,7 @@ coverage = "^6.1.2"
 coverage-badge = "^1.1.0"
 pytest-html = "^3.1.1"
 pytest-cov = "^3.0.0"
+anybadge = "^1.8.0"
 
 [tool.black]
 # https://github.com/psf/black
@@ -145,6 +146,9 @@ warn_return_any = true
 warn_unreachable = true
 warn_unused_configs = true
 warn_unused_ignores = true
+
+[tool.pylint.master]
+init-hook = "import sys; sys.path.append('.')"
 
 [tool.pylint.messages_control]
 jobs = 0  # Use all CPU cores

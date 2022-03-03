@@ -7,7 +7,11 @@
 [![Dependencies Status](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aapp%2Fdependabot)
 
 [![License](https://img.shields.io/github/license/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }})](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}/blob/main/LICENSE)
-![Coverage Report](assets/images/coverage.svg)
+
+[![lint report](assets/images/pylint.svg)](.logs/pylint-log.txt)
+[![coverage report](assets/images/coverage.svg)](.logs/coverage.txt)
+[![static analysis](assets/images/mypy.svg)](.logs/mypy.txt)
+[![vulnerabilities](assets/images/vulnerabilities.svg)](.logs/safety.txt)
 
 {{ cookiecutter.project_description }}
 

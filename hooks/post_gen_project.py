@@ -27,14 +27,14 @@ licenses_dict = {
 }
 
 
-def generate_license(directory: Path, license: str) -> None:
+def generate_license(directory: Path, license_shortname: str) -> None:
     """Generate license file for the project.
 
     Args:
         directory: path to the project directory
-        license: chosen license
+        license_shortname: chosen license
     """
-    move(str(directory / "_licenses" / f"{license}.txt"), str(directory / "LICENSE"))
+    move(str(directory / "_licenses" / f"{license_shortname}.txt"), str(directory / "LICENSE"))
     rmtree(str(directory / "_licenses"))
 
 
@@ -75,7 +75,7 @@ def print_further_instructions(project_name: str, directory: Path, github: str) 
 
     2) If your system Python version is not {{ cookiecutter.minimum_python_version }} or higher:
 
-        $ pyenv local $(pyenv versions | grep ' {{ cookiecutter.minimum_python_version }}' | xargs)
+        $ pyenv local $(pyenv versions --bare | grep '{{ cookiecutter.minimum_python_version }}')
 
     3) If you don't already have Poetry installed:
 
@@ -97,12 +97,17 @@ def print_further_instructions(project_name: str, directory: Path, github: str) 
         $ git remote add origin https://github.com/{github}/{project_name}.git
         $ gh repo create --private {github}/{project_name}
         $ git push -u origin main
+
+    7) For running all checks and making badges:
+
+        $ make test && make lint && make check-codestyle && make mypy && make check-safety && make extrabadges
     """
     print(textwrap.dedent(message))
 
 
 def main() -> None:
-    generate_license(directory=PROJECT_DIRECTORY, license=licenses_dict[LICENSE])
+    """Main function."""
+    generate_license(directory=PROJECT_DIRECTORY, license_shortname=licenses_dict[LICENSE])
     remove_unused_files(
         directory=PROJECT_DIRECTORY,
         module_name=PROJECT_MODULE,

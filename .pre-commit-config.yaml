@@ -2,17 +2,18 @@ default_language_version:
   python: python3.7
 
 default_stages: [commit, push]
+exclude: '^\.logs/'
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.5.0
+    rev: v4.1.0
     hooks:
       - id: check-yaml
         name: Validate YAML syntax
         exclude: ^{{ cookiecutter.project_name }}/.github/
       - id: end-of-file-fixer
         name: Fix End-of-File blank lines
-        exclude: ^(LICENSE|requirements.txt)$
+        exclude: ^(LICENSE|requirements\.txt)$
 
   - repo: local
     hooks:

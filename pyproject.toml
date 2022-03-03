@@ -50,13 +50,13 @@ coverage = "^6.1.2"
 coverage-badge = "^1.1.0"
 pytest-html = "^3.1.1"
 pytest-cov = "^3.0.0"
+anybadge = "^1.8.0"
 
 [tool.black]
 # https://github.com/psf/black
 target-version = ["py37"]
 line-length = 100
 color = true
-
 exclude = '''
 /(
     \.git
@@ -75,7 +75,6 @@ exclude = '''
 # https://github.com/timothycrosley/isort/
 py_version = 37
 line_length = 100
-
 known_typing = ["typing", "types", "typing_extensions", "mypy", "mypy_extensions"]
 sections = ["FUTURE", "TYPING", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
 profile = "black"
@@ -91,7 +90,6 @@ python_version = 3.7
 pretty = true
 show_traceback = true
 color_output = true
-
 allow_redefinition = false
 check_untyped_defs = true
 disallow_any_generics = true
@@ -111,6 +109,12 @@ warn_unreachable = true
 warn_unused_configs = true
 warn_unused_ignores = true
 
+[tool.pylint.master]
+init-hook = "import sys; sys.path.append('.')"
+
+[tool.pylint.messages_control]
+jobs = 0  # Use all CPU cores
+disable = "W0703,R0912,R0913,R0914,R0915,E0401,R0801"
 
 [tool.pytest.ini_options]
 # https://docs.pytest.org/en/6.2.x/customize.html#pyproject-toml
