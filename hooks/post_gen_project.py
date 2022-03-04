@@ -73,9 +73,9 @@ def print_further_instructions(project_name: str, directory: Path, github: str) 
 
         $ cd {directory} && git init -b main
 
-    2) If your system Python version is not {{ cookiecutter.minimum_python_version }} or higher:
+    2) If your system Python version is not {{ cookiecutter.minimal_python_version }} or higher:
 
-        $ pyenv local $(pyenv versions --bare | grep '{{ cookiecutter.minimum_python_version }}')
+        $ pyenv local $(pyenv versions --bare | grep '{{ cookiecutter.minimal_python_version }}')
 
     3) If you don't already have Poetry installed:
 

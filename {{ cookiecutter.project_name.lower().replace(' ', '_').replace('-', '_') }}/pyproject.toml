@@ -5,7 +5,7 @@
     'Apache Software License 2.0': 'License :: OSI Approved :: Apache Software License',
     'Proprietary': 'License :: Other/Proprietary License',
 } -%}
-{%- set python_version_splitted = cookiecutter.minimum_python_version.split('.') | map('int') | list -%}
+{%- set python_version_splitted = cookiecutter.minimal_python_version.split('.') | map('int') | list -%}
 # Poetry pyproject.toml: https://python-poetry.org/docs/pyproject/
 [build-system]
 requires = ["poetry_core>=1.0.0"]
@@ -45,8 +45,8 @@ packages = [
 "{{ cookiecutter.project_name }}" = "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}.__main__:app"{%- endif %}
 
 [tool.poetry.dependencies]
-python = "^{{ cookiecutter.minimum_python_version }}"
-{% if cookiecutter.minimum_python_version == '3.7' -%}importlib_metadata = {version = "^4.5.0", python = "<3.8"}{%- endif -%}
+python = "^{{ cookiecutter.minimal_python_version }}"
+{% if cookiecutter.minimal_python_version == '3.7' -%}importlib_metadata = {version = "^4.5.0", python = "<3.8"}{%- endif -%}
 {%+ if cookiecutter.create_example_template == 'cli' %}
 typer = {extras = ["all"], version = "^0.4.0"}
 rich = "^10.14.0"
@@ -73,7 +73,7 @@ anybadge = "^1.8.0"
 
 [tool.black]
 # https://github.com/psf/black
-target-version = ["py{{ cookiecutter.minimum_python_version.replace('.', '') }}"]
+target-version = ["py{{ cookiecutter.minimal_python_version.replace('.', '') }}"]
 line-length = {{ cookiecutter.line_length }}
 exclude = '''
 /(
@@ -94,7 +94,7 @@ exclude = '''
 
 [tool.isort]
 # https://github.com/timothycrosley/isort/
-py_version = {{ cookiecutter.minimum_python_version.replace('.', '') }}
+py_version = {{ cookiecutter.minimal_python_version.replace('.', '') }}
 line_length = {{ cookiecutter.line_length }}
 known_typing = ["typing", "types", "typing_extensions", "mypy", "mypy_extensions"]
 sections = ["FUTURE", "TYPING", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
@@ -124,7 +124,7 @@ skip = [
 
 [tool.mypy]
 # https://mypy.readthedocs.io/en/latest/config_file.html#using-a-pyproject-toml-file
-python_version = {{ cookiecutter.minimum_python_version }}
+python_version = {{ cookiecutter.minimal_python_version }}
 pretty = true
 show_traceback = true
 color_output = true

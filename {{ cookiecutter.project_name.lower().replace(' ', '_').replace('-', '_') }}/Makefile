@@ -19,7 +19,7 @@ poetry-remove:
 #* Installation
 .PHONY: install
 install:
-	poetry env use {{ cookiecutter.minimum_python_version }}
+	poetry env use {{ cookiecutter.minimal_python_version }}
 	poetry lock -n && poetry export --without-hashes > requirements.txt
 	poetry install -n
 	-poetry run mypy --install-types --non-interactive ./src
@@ -31,7 +31,7 @@ pre-commit-install:
 #* Formatters
 .PHONY: codestyle
 codestyle:
-	poetry run pyupgrade --exit-zero-even-if-changed --py{{ cookiecutter.minimum_python_version.replace('.', '') }}-plus ./src/**/*.py
+	poetry run pyupgrade --exit-zero-even-if-changed --py{{ cookiecutter.minimal_python_version.replace('.', '') }}-plus ./src/**/*.py
 	poetry run isort --settings-path pyproject.toml ./src
 	poetry run black --config pyproject.toml ./src
 

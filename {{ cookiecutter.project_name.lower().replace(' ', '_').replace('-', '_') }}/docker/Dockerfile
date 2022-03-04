@@ -1,4 +1,4 @@
-FROM python:{{ cookiecutter.minimum_python_version }}-slim-buster
+FROM python:{{ cookiecutter.minimal_python_version }}-slim-buster
 
 ENV LANG=C.UTF-8 \
   LC_ALL=C.UTF-8 \
