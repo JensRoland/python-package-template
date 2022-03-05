@@ -104,21 +104,21 @@ multi_line_output = 3
 indent = 4
 color_output = true
 skip = [
-  '.direnv',
-  '.git',
-  '.github',
-  '.mypy_cache',
-  '.nox',
-  '.tox',
-  '.venv',
-  '.vscode',
-  '__pypackages__',
-  '_build',
-  'build',
-  'dist',
-  'node_modules',
-  'env',
-  'venv',
+  ".direnv",
+  ".git",
+  ".github",
+  ".mypy_cache",
+  ".nox",
+  ".tox",
+  ".venv",
+  ".vscode",
+  "__pypackages__",
+  "_build",
+  "build",
+  "dist",
+  "node_modules",
+  "env",
+  "venv",
   "__init__.py"  # There is a known bug in isort on __init__.py files
 ]
 

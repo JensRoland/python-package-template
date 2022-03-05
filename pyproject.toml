@@ -82,7 +82,24 @@ include_trailing_comma = true
 multi_line_output = 3
 indent = 4
 color_output = true
-
+skip = [
+  ".direnv",
+  ".git",
+  ".github",
+  ".mypy_cache",
+  ".nox",
+  ".tox",
+  ".venv",
+  ".vscode",
+  "__pypackages__",
+  "_build",
+  "build",
+  "dist",
+  "node_modules",
+  "env",
+  "venv",
+  "__init__.py"  # There is a known bug in isort on __init__.py files
+]
 
 [tool.mypy]
 # https://mypy.readthedocs.io/en/latest/config_file.html#using-a-pyproject-toml-file
@@ -129,7 +146,6 @@ addopts = [
   "--doctest-modules",
   "--doctest-continue-on-failure",
 ]
-
 
 [tool.coverage.run]
 source = ["tests"]
