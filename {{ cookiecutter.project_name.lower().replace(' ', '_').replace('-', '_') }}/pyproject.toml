@@ -85,6 +85,7 @@ exclude = '''
     | \.venv
     | \.vscode
     | _build
+    | buck-out
     | build
     | dist
     | env
