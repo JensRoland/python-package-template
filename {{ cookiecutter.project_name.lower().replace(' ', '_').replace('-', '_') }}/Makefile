@@ -41,7 +41,7 @@ formatting: codestyle
 #* Linting
 .PHONY: test
 test:
-	PYTHONPATH=$(PYTHONPATH) poetry run pytest -c pyproject.toml --cov-report=html --cov={{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests/
+	PYTHONPATH=$(PYTHONPATH) poetry run pytest -c pyproject.toml --cov-report=html --cov=src tests/
 	poetry run coverage-badge -o assets/images/coverage.svg -f
 
 .PHONY: extrabadges
@@ -53,7 +53,7 @@ extrabadges:
 check-codestyle:
 	poetry run isort --diff --check-only --settings-path pyproject.toml ./src
 	poetry run black --diff --check --config pyproject.toml ./src
-	poetry run darglint --verbosity 2 {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests ./src
+	poetry run darglint --verbosity 2 src tests
 	poetry run pylint ./src
 
 .PHONY: mypy
