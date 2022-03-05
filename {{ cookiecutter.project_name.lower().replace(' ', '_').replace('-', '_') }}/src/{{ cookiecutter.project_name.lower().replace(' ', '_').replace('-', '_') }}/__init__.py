@@ -1,11 +1,6 @@
 """{{ cookiecutter.project_description }}."""
 
-import sys
-
-if sys.version_info >= (3, 8):
-    from importlib import metadata as importlib_metadata
-else:
-    import importlib_metadata
+{% if cookiecutter.minimal_python_version == '3.7' -%}import importlib_metadata{%- else -%}from importlib import metadata as importlib_metadata{%- endif %}
 
 
 def get_version() -> str:
